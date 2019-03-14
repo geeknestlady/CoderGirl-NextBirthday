@@ -10,7 +10,7 @@ namespace NextBirthday
             string userBirthdayInput = Console.ReadLine();
             userBirthdayInput = String.Format("{0:MM/dd}", userBirthdayInput);
             //Console.WriteLine("Has your birthday already passed this year?");
-            string userQuestion = Console.ReadLine();
+            //string userQuestion = Console.ReadLine();
             
             
             DateTime userBirthday = DateTime.Parse(userBirthdayInput);
@@ -24,10 +24,9 @@ namespace NextBirthday
         {
 
             DateTime currentDate = DateTime.Now;
-            TimeSpan yearsBetween = currentDate.Subtract(userBirthday);
-            string daysBetween = yearsBetween.TotalDays.ToString();
-            //int daysBetweenInt = int.Parse(daysBetween);
-            //int yearsTotalBetween = daysBetweenInt / 365;
+            int currentYear = currentDate.Year;
+            
+            
             DateTime nextBirthday = userBirthday.AddYears(1);
             
             
