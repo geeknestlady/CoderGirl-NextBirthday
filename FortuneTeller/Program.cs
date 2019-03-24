@@ -7,15 +7,10 @@ namespace NextBirthday
         public static void Main(string[] args)
         {
             Console.WriteLine("When is your birthday?");
-            string userBirthdayInput = Console.ReadLine();
-            //userBirthdayInput = String.Format("{0:MM/dd}", userBirthdayInput);
-            //Console.WriteLine("Has your birthday already passed this year?");
-            //string userQuestion = Console.ReadLine();
-            
-            
+            string userBirthdayInput = Console.ReadLine();                     
             DateTime userBirthday = DateTime.Parse(userBirthdayInput);
             string nextBirthday = NextBirthdayDay(userBirthday);
-            Console.WriteLine(nextBirthday);           
+            Console.WriteLine(nextBirthday);          
                                
                              
             Console.ReadLine();
@@ -30,10 +25,18 @@ namespace NextBirthday
             //int birthdayDay = userBirthday.Day;
 
             DateTime nextBirthday = userBirthday;
-            if (currentDate >= userBirthday)
+            if (currentDate > userBirthday)
             {
                 nextBirthday = userBirthday.AddYears(1);
-            }            
+            } 
+            else if (currentDate == userBirthday)
+            {
+                nextBirthday = userBirthday.AddDays(-1);
+            }
+            else
+            {
+                nextBirthday = userBirthday.AddYears(0);
+            }
               
             return nextBirthday.DayOfWeek.ToString();
         }
